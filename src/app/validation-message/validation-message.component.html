@@ -1,0 +1,45 @@
+
+<!-- The Modal -->
+<!-- <div class="modal fade show" id="loginModal" *ngIf="popShow">
+    <div class="modal-dialog">
+        <div class="modal-content"> -->
+
+        <!-- Modal Header -->
+        <!-- <div class="modal-header">
+        <h4 class="modal-title">Message</h4>
+        </div>
+
+        <div class="modal-body">
+
+        <div class="{{popClass}}" [innerHTML]=popMsg></div>
+
+        </div>
+        <div class="modal-footer">
+        <button value="Submit"  class="btn btn-primary" (click)="popClose()">OK</button>
+        </div>
+        </div>
+    </div>
+</div> -->
+<!-- <div class="popup-overlay" *ngIf="popShow"></div> -->
+
+
+
+<div class="popup-display" *ngIf="popShow">
+    <div class="modal-dialog message">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="closePop()">&times;</button>
+                <h4 class="modal-title">Message</h4>
+            </div>
+            <div class="modal-body">
+                <div class="{{popClass}}" [innerHTML]=popMsg></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"  class="btn btn-default" data-dismiss="modal" (click)='closePop()'>Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

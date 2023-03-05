@@ -1,0 +1,242 @@
+
+<app-header></app-header>
+<main class="container rounded mt-3 p-3" style=line-height:3.5em >
+    <form [formGroup]="formentry">  
+    <div class="ribbon p-2 mb-3 rounded-top d-flex justify-content-between">
+        
+        <div class="nav-name">History View For:- {{j.invoiceNO}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group text-left">
+                <span><strong class="fontlarge text-warning">Status:</strong> {{j.status}}</span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group text-right">
+                <span><strong class="fontlarge text-warning">Created On:</strong> {{j.billOrderDate}}</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Party Code</label>
+                <input type="text" value="{{j.partyCode}}" [(ngModel)]="j.partyCode" formControlName="partyCode"  class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Party Name</label>
+                <input type="text" value="{{j.partyName}}"  [(ngModel)]="j.partyName" formControlName="partyName"  class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Order Number</label>
+                <input type="text" value="{{j.billOrderNo}}"  [(ngModel)]="j.billOrderNo" formControlName="billOrderNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Order Date</label>
+                <input type="date"  [(ngModel)]="j.billOrderDate" formControlName="billOrderDate" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group input-text-wrapper">
+                <label for="training">Invoice Number</label>
+                <input type="text" value="{{j.invoiceNO}}" class="field form-control"  [(ngModel)]="j.invoiceNO" formControlName="invoiceNO" placeholder="invoiceNO">
+            </div>
+        </div>
+
+        
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Invoice Date</label>
+                <input type="text"  [(ngModel)]="j.recptInvDate" formControlName="recptInvDate" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">GRN No</label>
+                <input type="text" value="{{j.grNo}}"  [(ngModel)]="j.grNo" formControlName="grNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">GRN Date</label>
+                <input type="text"  [(ngModel)]="j.grDate" formControlName="grDate" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">GR No</label>
+                <input type="text" value="{{j.cnNo}}"  [(ngModel)]="j.cnNo" formControlName="cnNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">GR Date</label>
+                <input type="text" value="{{j.cnDate | date:'dd-MM-yyyy'}}"  [(ngModel)]="j.cnDate" formControlName="cnDate" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Receiving Location</label>
+                <input type="text" value="{{j.receiveLoc}}"  [(ngModel)]="j.receiveLoc" formControlName="receiveLoc" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">St Code</label>
+                <input type="text" value="{{j.stateCode}} {{j.stateName}}"  [(ngModel)]="j.stateCode" formControlName="stateCode" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Region</label>
+                <input type="text" value="{{j.shopNo}}"  [(ngModel)]="j.shopNo" formControlName="shopNo" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Pair/ Pcs</label>
+                <input type="text" value="{{j.pair}}"  [(ngModel)]="j.pair" formControlName="pair" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Purchase Amount</label>
+                <input type="text" value="{{j.purchaseCost | currency:'USD':''}}"  [(ngModel)]="j.purchaseCost" formControlName="purchaseCost" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Invoice Amount</label>
+                <input type="text" value="{{j.invoiceCost | currency:'USD':''}}"  [(ngModel)]="j.invoiceCost" formControlName="invoiceCost" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">IGST Amount</label>
+                <input type="text" value="{{j.igstamt | currency:'USD':''}}"  [(ngModel)]="j.igstamt" formControlName="igstamt" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">CGST Amount</label>
+                <input type="text" value="{{j.cgstamt | currency:'USD':''}}"  [(ngModel)]="j.cgstamt" formControlName="cgstamt" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">SGST Amount</label>
+                <input type="text" value="{{j.sgstamt | currency:'USD':''}}"  [(ngModel)]="j.sgstamt" formControlName="sgstamt" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Freight</label>
+                <input type="text" value="{{j.freight | currency:'USD':''}}"  [(ngModel)]="j.freight" formControlName="freight"  class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Total Cost</label>
+                <input type="text" value="{{j.totalCost | currency:'USD':''}}"  [(ngModel)]="j.totalCost" formControlName="totalCost" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">No Claim Discount %</label>
+                <input type="text" value="{{j.discountAmt}}"  [(ngModel)]="j.discountAmt" formControlName="discountAmt"  class="form-control" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">No Claim Discount</label>
+                <input type="text" value="{{j.discountAmtVal | currency:'USD':''}}"  [(ngModel)]="j.discountAmtVal" formControlName="discountAmtVal" class="form-control" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">Credit Note</label>
+                <input type="text" value="{{j.creditNote | currency:'USD':''}}"  [(ngModel)]="j.creditNote" formControlName="creditNote" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">TCS Applicable</label>
+                <input type="text" value="{{j.tcsApplicable}}"  [(ngModel)]="j.tcsApplicable" formControlName="tcsApplicable" class="form-control" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">TCS %</label>
+                <input type="text" value="{{j.tcsPercent}}"  [(ngModel)]="j.tcsPercent" formControlName="tcsPercent" class="form-control" >
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="training">TCS</label>
+                <input type="text" value="{{j.tcsValue | currency:'USD':''}}"  [(ngModel)]="j.tcsValue" formControlName="tcsValue" class="form-control" >
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group text-center">
+                    <span class="text-warning"><strong>RDC's Records</strong></span>
+                </div>
+            </div>
+        
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th width="50%">Article Code</th>
+                        <th width="50%">Pair</th>
+                    </tr>
+                </thead>
+                
+            </table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Article Code</th>
+                        <th>Week-Year</th>
+                        <th>Pair</th>
+                        <th>No Of Cartons</th>
+                        <!-- <th>Pair Amount</th> -->
+                        <th>Per Pair Amount</th>
+                        <th>Delivery Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of j.rdcList;let i = index">
+                        <td><input  type="text" class="form-control" value="{{item.articleCode}}" /></td>
+                        <td><input  type="text" class="form-control" value="{{item.weekYear}}" /></td>
+                        <td><input  type="text" class="form-control" value="{{item.rdcPair}}" /></td>
+                        <td><input  type="text" class="form-control" value="{{item.noOfCartons}}" /></td>
+                        <!-- <td><input  type="text" class="form-control" value="{{item.pairAmount}}" /></td> -->
+                        <td><input  type="text" class="form-control" value="{{item.pairAmount/item.rdcPair | currency:'USD':''}}" />
+                        </td>
+                        <td><input  type="text" class="form-control"
+                                value="{{item.receiveDate | date:'dd-MM-yyyy'}}" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-md-12 text-center">
+                <button  class="btn btn-primary btn-sm" routerLink="/filter">Back</button>
+                <button *ngIf="j.billOrderNo" type="submit" style='margin-left:16px'class="btn btn-primary btn-sm"  (click)="onSubmitListForm()" [disabled]="!j.billOrderNo">Submit</button>
+                <button type="reset" style='margin-left:16px'class="btn btn-primary btn-sm mr-2" (click)="resetUsersForm()">Reset</button>
+            </div>
+        
+        
+    </div>
+</form>
+</main>
+<app-validation-message [message]="inputJson"></app-validation-message>
+<!-- 
+<app-footer></app-footer> -->

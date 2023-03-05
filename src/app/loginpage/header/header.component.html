@@ -1,0 +1,169 @@
+<!--Header start-->
+
+<header>
+    <div class="container pt-2 pb-2">
+      <div class="top-bar d-flex justify-content-between">
+        <div class="logo"><img src="./assets/images/logo.png" alt="Logo"></div>
+        <div class="user flex-grow-1 d-flex justify-content-end">
+          <!-- <div class="search p-relative mr-4">
+  <input type="search" class="form-control pt-1 pb-1 bdr-radius-20" placeholder="Search">
+  <i class="fa fa-search p-absolute cursor-pointer color-gray p-1" aria-hidden="true"></i>
+  </div> -->
+          <!--<div class="input-group search-bar-keywords-input-wrapper">
+    <input type="text" class="form-control pt-1 pb-1 bdr-radius-20" placeholder="Search...">
+    <div class="input-group-btn">
+      <button class="btn btn-default" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>-->
+          <div class="dropdown user-profile">
+            <div class="dropdown-toggle pr-2 cursor-pointer" data-toggle="dropdown"  >
+              
+              <!--<img src="../assets/images/user-profile.jpg" alt="User Image Profile" class="rounded-circle">--> <span
+              class="dropdown-item" class="user-name d-none d-sm-inline" style='margin-left: 1055px;'>{{username}}</span>
+            </div>
+            <div class="dropdown-menu p-0 rounded-0">
+              <p><a class="dropdown-item" (click)="fetchFlag('YES')" ><i  class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                Change Password</a></p>
+              <!-- <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notifications</a> -->
+              <p><a class="dropdown-item" (click)="logout()" id="sign-out"><i class="glyphicon glyphicon-off" aria-hidden="true"></i>
+                Sign Out</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+      <div class="" >
+        <!-- <button class="navbar-toggler ml-auto mr-3" type="button" class="fa fa-home" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar" >
+          <ul class="navbar-nav" style='margin-top: 15px' >
+            <li class="nav-item dropdown" *ngIf="navFinanceUser">
+              <a class="nav-link" href="javascript:void(0)" routerLink="/user"><span
+                  class="text-truncate"><i class="fa fa-home" aria-hidden="true"></i></span></a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="navFinanceUser">
+              <a class="nav-link" href="javascript:void(0)" routerLink="/reports"><span
+                  class="text-truncate"><i class="fa fa-home" aria-hidden="true"></i></span></a>
+            </li>
+  
+  
+            <li class="nav-item" *ngIf="navFinanceUser">
+              <a class="nav-link" routerLink="/listpage" href="javascript:void(0)"><span class="text-truncate"><i
+                    class="fa fa-home" aria-hidden="true"></i></span></a>
+            </li>
+  
+  
+            <li class="nav-item" *ngIf="navFinanceApprover">
+              <a class="nav-link" href="#/approvalpage"><span class="text-truncate"><i
+                    class="fa fa-home" aria-hidden="true"></i></span></a>
+            </li>
+  
+  
+            <li class="nav-item" *ngIf="navFinanceUser">
+              <a class="nav-link "href="#/historypage">Week-List</a>
+            </li>
+            <li class="nav-item" *ngIf="navFinanceUser || navFinanceApprover">
+              <a class="nav-link" href="#/history/reports">History</a>
+            </li>
+            <li class="nav-item" *ngIf="navFinanceUser || navFinanceApprover">
+              <a class="nav-link" href="#/exportxl">Charts</a>
+            </li>
+  
+            <!-- <li class="nav-item" *ngIf="navAdmin">
+  <a class="nav-link" routerLink="/master/manage-user" href="#">Manage Users</a>
+  </li>
+  <li class="nav-item" *ngIf="navAdmin">
+  <a class="nav-link" routerLink="/master/manage-role" href="#">Manage Role</a>
+  </li>  -->
+  
+            <!-- <li class="nav-item dropdown" *ngIf="navFinanceUser">
+              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Manage</a>
+              <div class="dropdown-menu p-0 m-0 rounded-0">
+                <a class="dropdown-item" href="#/master/manage-user">Manage-User</a>
+                <a class="dropdown-item" href="#/master/manage-role">Manage-Role</a>
+                <a class="dropdown-item" href="#/master/manage-dept">Manage-Department</a>
+                <a class="dropdown-item" href="#/master/manage-desig">Manage-Designation</a>
+                <a class="dropdown-item" href="#/master/manage-tcs">Manage-TCS</a>
+              </div>
+            </li> -->
+            <!-- <li class="nav-item dropdown" >
+              
+              <a _ngcontent-ocq-c2="" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Reports</a>
+              
+            </li> -->
+            
+   
+            <li class="">
+              <button type="button" class="btn btn btn-primary login_btn border-0 rounded-0 w-10 btn-primary btn-default .btn:disabled" style='margin-right:16px' routerLink="/loginpage"><span class="glyphicon glyphicon-home"></span> Home</button>
+              </li>
+
+              <li class="dropdown">
+                <button type="button"  data-toggle="dropdown" href="#"  class="btn btn btn-primary login_btn border-0 rounded-0 w-10 btn-primary btn-default .btn:disabled"  style='margin-right:16px' >Organization</button>
+            
+              <div class="dropdown-menu p-0 m-0 rounded-0">
+                <!-- <a class="dropdown-item" class="nav-link" href="#">Award &amp; Achievement</a>
+                <a class="dropdown-item" class="nav-link" routerLink="/listpage" href="#">Employee Services</a>
+                <a class="dropdown-item" class="nav-link" routerLink="/listpage" href="#">Document Library</a> -->
+             
+                <p><a class="dropdown-item" routerLink="/organization">Award &amp; Achievement</a></p>
+                <p><a class="dropdown-item" routerLink="/organization">Employee Services</a></p>
+                <p><a class="dropdown-item" routerLink="/organization">Document Library</a></p>
+                <p><a class="dropdown-item" routerLink="/medialink">MediaPlayer Library</a></p>
+                  
+                  </div>
+            </li>
+  
+              <li class="dropdown" >
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" type="button"  class="btn btn btn-primary login_btn border-0 rounded-0 w-10 btn-primary btn-default .btn:disabled" style='margin-right:16px' >Manage User</a>
+                <div class="dropdown-menu p-0 m-0 rounded-0">
+                  <p><a class="dropdown-item" routerLink="/user">Create-User</a></p>
+                  <p><a class="dropdown-item" routerLink="/role">Manage-Role</a></p>
+                  <p><a class="dropdown-item" routerLink="/dept">Manage-Department</a></p>
+                  <p><a class="dropdown-item" routerLink="/designation">Manage-Designation</a></p> 
+                  <!-- <p><a class="dropdown-item" routerLink="/user">Manage-TCS</a></p> -->
+                 
+                </div>
+              </li>
+  
+          <li class="dropdown" >
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" type="button"  class="btn btn btn-primary login_btn border-0 rounded-0 w-10 btn-primary btn-default .btn:disabled" style='margin-right:16px' >Reports</a>
+        <div class="dropdown-menu p-0 m-0 rounded-0">
+          <p><a class="dropdown-item"  routerLink="/reports">Edit Report</a></p>
+          <p><a class="dropdown-item" routerLink="/reports">STRAZA Report</a></p>
+          <p><a class="dropdown-item" routerLink="/reports">GST Report</a></p> 
+          <p><a class="dropdown-item"routerLink="/reports">Report by Week</a></p>
+         
+        </div>
+      </li>
+      <li class="">
+        <button type="button" class="btn btn-success" routerLink="/historypage" style='margin-right:16px'>History</button>
+        </li>
+        <li class="">
+          <button type="button" class="btn btn-success" routerLink="/exportxl" style='margin-right:16px'>Charts</button>
+          </li>
+          <li class="">
+            <button type="button" class="btn btn-success" routerLink="/manualpage" style='margin-right:16px'>Manual Form</button>
+            </li>
+          
+
+
+       
+     
+         
+  
+  <!-- <li class="nav-item">
+  <a class="nav-link" href="#">My Repository</a>
+  </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  
+  <!--Header End-->
+  

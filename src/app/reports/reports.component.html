@@ -1,0 +1,77 @@
+<app-header></app-header>
+<main class="container rounded mt-3 p-3" style=line-height:3.5em >
+    <div class="ribbon p-2 mb-3 rounded-top d-flex justify-content-between">
+        <div class="nav-name" style='margin-left:12px'>  Download Reports By Week</div>
+        
+    </div>
+
+    <div class='col-sm-12 text-right'>
+        <button *ngIf="j.length > 0;else disabled_btn" (click)="exportAsXLSX()"
+            class="text-right mb-2 btn btn-secondary btn-sm btn-success">Export To Excel</button>
+        <ng-template #disabled_btn>
+            <button [disabled]="true" class="text-right mb-2 btn btn-secondary btn-sm btn-success">Export To
+                Excel</button>
+        </ng-template>
+    </div>
+ 
+<form [formGroup]="downloadReportsForm" id="validateForm">
+    <div class="row" >
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="training">Week</label>
+                <select class='form-control' formControlName="week">
+                    <option value=''>--Select Week-- </option>
+                    <ng-container *ngFor="let i of weekArr;let index = index; ">
+                        <option *ngIf="index != 0" value={{index}}>{{index}}</option>
+                    </ng-container>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="training">Year</label>
+                <select class='form-control' formControlName="year">
+                    <option value=''>--Select Year-- </option>
+                    <ng-container *ngFor="let yearList of yearArray">
+                        <option value={{yearList}}>{{yearList}}</option>
+                    </ng-container>
+                </select>
+                <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                            aria-hidden="true"></i>
+                        Please Select Year</small></div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mt-4" style="margin: 44px;">
+            <button type="submit" [disabled]="!downloadReportsForm.valid"  class="btn btn-primary btn-sm mt-1 mr-2"
+                (click)="submitForm()">Search</button>
+                <button type="reset" (click)="resetPage()" class="btn btn-danger btn-sm mt-1" style='margin-left:12px'>Reset</button>
+        </div>
+    </div>
+</form>
+<div class="table-responsive" id="listing1" #listing1>
+    <table class="table table-bordered" id="listing2">
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Report Name</th>
+                <th>Week</th>
+                <th>Year</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>EDP Report</td>
+                <td>Week {{currWeekValue}}</td>
+                <td>{{curryearValue}}</td>
+                <td><button [disabled]="ifBtnDisabled" class="btn btn-primary btn-sm"
+                        (click)="downloadReportfile(1)">Download</button></td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+</main>
+<app-footer></app-footer>

@@ -1,0 +1,74 @@
+<app-header></app-header>
+<!-- <div class="row" >
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="training">Party Code</label>
+            <input type="text" class="form-control" [value]='j.partyCode'>
+
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="training">Invoice No</label>
+            <input type="text" class="form-control" [value]='j.invoiceNO'> -->
+
+            <div class="nav-name">Invoice List Page</div>
+            <div class='col-sm-12 text-right'>
+                <button *ngIf="j.length > 0;else disabled_btn" (click)="exportAsXLSX()"
+                    class="text-right mb-2 btn btn-secondary btn-sm btn-success">Export To Excel</button>
+                <ng-template #disabled_btn>
+                    <button [disabled]="true" class="text-right mb-2 btn btn-secondary btn-sm btn-success">Export To
+                        Excel</button>
+                </ng-template>
+            </div>
+            <table class="table table-bordered" jid="listing2">
+                <thead>
+                    <tr>
+                        <th>Sno</th>
+                        <th>Order No</th>
+                        <th>Party Code</th>
+                        <th>Invoice No</th>
+                        <th>Created On</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="j.partyCode;else records" class='text-center'>
+                        <td colspan=9>Loading...</td>
+                    </tr>
+                    <ng-template #records>
+                        <ng-container *ngIf="j.length > 0;else no_record">
+                            <tr *ngFor="let b of j;let i = index">
+                                <td>{{i+1}}</td>
+                                <td>{{b.billOrderNo}}</td>
+                                <td>{{b.partyCode}}</td>
+                                <td>{{b.invoiceNO}}</td>
+                                <td>{{b.billOrderDate | date: 'dd-MM-yyyy'}}</td>
+                                <td>{{b.status}}</td>
+                                <td><button
+                                        (click)="formpage({'billOrderNo': b.billOrderNo,'partyCode': b.partyCode,'invoiceNO' : b.invoiceNO,'status' : b.status,'createdDate' : b.createdDate})"
+                                        class="btn btn-primary btn-sm">View</button></td>
+                            </tr>
+                        </ng-container>
+                        <ng-template #no_record>
+                            <tr>
+                                <tr>
+                                    <td class="text-center no_record" colspan="18">{{"No Data Found."}}</td>
+                            </tr>
+                        </ng-template>
+                    </ng-template>
+                </tbody>
+            </table>
+
+           
+              
+            <app-footer></app-footer>
+               
+            
+            
+        
+        
