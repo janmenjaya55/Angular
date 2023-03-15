@@ -8,4 +8,4 @@ RUN npm run node --max_old_space_size=6192 node_modules/@angular/cli/bin/ng buil
 
 #stage 2
 FROM nginx:alpine
-COPY --from=node /app/dist/Angular build /usr/share/nginx/html
+COPY --from=node /app/dist/angular-world /usr/share/nginx/html
