@@ -1,0 +1,113 @@
+<app-header></app-header>
+<main class="container rounded mt-3 p-3" style=line-height:2.0em >
+    <div class="ribbon p-2 mb-3 rounded-top d-flex justify-content-between">
+        <div class="nav-name">Listing Search</div>
+    </div>
+<div class="col-md-12 text-center" class="col-md-12 text-center mt-6" >
+<!-- <app-selector></app-selector> -->
+
+</div>
+
+    <div class="col-md-12 text-center mt-5" class="row">
+
+        <form [formGroup]="filterForm"  *ngIf="!j.partyCode" >  
+            
+            <div class="col-md-3">
+        <label for="training">PartyCode: </label>
+        <input type="text"  formControlName="PartyCode" class="form-control"  placeholder="PartyCode" autocomplete="off"> 
+    </div>
+       
+    <div class="col-md-3">
+        <label for="training"> InvoiceNo: </label>
+        <input type="text" formControlName="invoiceNo" class="form-control"  placeholder="invoiceNo">
+    </div>
+        <div class="col-md-3">
+        <label for="training"> OrderNo: </label>
+        <input type="text" formControlName="OrderNo" class="form-control"  placeholder="OrderNo">
+    </div>
+     
+   
+    <div class="col-md-3">
+    <label for="training"> grNo: </label>
+    <input type="text" formControlName="grNo" class="form-control"  placeholder="grNo">
+</div>
+
+
+<div class="col-md-3">
+<label for="training"> Year: </label>
+<input type="text" formControlName="year" class="form-control"  placeholder="Year">
+</div>
+
+
+<div class="col-md-3">
+<label for="training"> Week: </label>
+<input type="text" formControlName="week" class="form-control" placeholder="Week">
+</div>
+<div class="col-md-3">
+    <label for="training"> Status: </label>
+      
+
+    
+    
+    <select type="text" formControlName="Status" class="form-control" placeholder="Status">
+        <option value="RECORD_RECEIVED">Record Received</option>
+    <option value="SUBMITTED">Submitted</option>
+    <option value="APPROVED">Approved</option>
+    <option value="CLOSED">Closed</option>
+    <option value="INVALID">Invalid</option> 
+      </select>
+    
+    </div>
+   <button class="btn btn-success" style='margin-left:16px' style='margin-top:33px'  type="submit" (click)="filterFormsearch()" [disabled]="filterForm.invalid">Search</button>
+        
+        </form>
+      
+        </div>
+
+
+        <!-- <div class="row" *ngIf="j.partyCode" >
+ 
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="training">Party Code</label>
+                    <input type="text" class="form-control" [value]='j.partyCode'>
+    
+    
+                </div>
+            </div>
+    
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="training">Invoice No</label>
+                    <input type="text" class="form-control" [value]='j.invoiceNO'>
+    
+                </div>
+    
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="training">Order No</label>
+                        <input type="text" class="form-control" [value]='j.billOrderNo'>
+    
+                    </div>
+        
+    </div> -->
+</main>
+
+
+<!-- <div class="col-md-6">
+    <div class="card shadow">
+
+      <div class="card-header"><strong>Nature of Complaints </strong></div>
+      <div class="card-body">
+        <div class="chartHeight" [chart]="chart1"></div>
+      </div>
+    </div>
+
+
+  </div> -->
+<app-footer></app-footer>
+    
+    
+       
+    
+    
