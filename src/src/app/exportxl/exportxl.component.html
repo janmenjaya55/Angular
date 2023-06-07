@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="col-md-12">
+  <div class="card shadow">
+    <!-- .card-body -->
+    <div class="card-header">
+      <div class="col-md-10">
+        <strong>Total Party Summary</strong>
+      </div>
+      <div class="col-md-2">
+        <div>
+
+          <select class="form-control" #s (change)='reloadChart(s.value)' [(ngModel)]="fyList">
+            <option value="{{ finYear.year }}" *ngFor="let finYear of financialYearListing">{{ finYear.name }}</option>
+            <!-- <option value="null">ALL FY</option>
+            <option value="2017-18">FY 2017-2018</option>
+            <option value="2018-19">FY 2018-2019</option>
+            <option value="2019-20">FY 2019-2020</option>
+            <option value="2020-21">FY 2020-2021</option> -->
+
+            <!-- <option *ngFor="let item of FinancialYearList" [value]="item">{{formatValue(item)}}</option> -->
+          </select>
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="col-6">
+            <div id="chart-pie"></div>
+            <div id="chart-column"></div>
+            <div id="chart-line"></div>
+
+
+          </div>
+          <ng-template #chartLoading>
+            <div class="text-center">Loading...</div>
+          </ng-template>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
