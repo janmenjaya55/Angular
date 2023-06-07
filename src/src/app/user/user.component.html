@@ -1,0 +1,245 @@
+<app-header></app-header>
+<main class="container rounded mt-3 p-3" style=line-height:3.5em >
+    <div class="ribbon p-2 mb-3 rounded-top d-flex justify-content-between">
+        <div class="nav-name">Manage Users</div>
+    </div>
+    <form [formGroup]="userForm" id="validateForm">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input id='username' type="text" class="form-control" formControlName="username">
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Enter Valid User Name</small></div>
+                </div>
+            </div>
+
+            <div class="col-md-3" *ngIf="create">
+                <div class="form-group">
+                    <label for="loginId">User ID</label>
+                    <input id='loginId' type="text" class="form-control" formControlName="loginId">
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Enter Valid User ID</small></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="emailId">Email ID</label>
+                    <input id='emailId' type="text" class="form-control" formControlName="emailId">
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Enter Valid Email ID</small></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="userLevel">User Level</label>
+                    <input id='userLevel' type="text" class="form-control" formControlName="userLevel">
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Enter Valid User Level</small></div>
+                </div>
+            </div>
+            <!-- </div>
+        <div class="row"> -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="mobNo">Mobile No</label>
+                    <input id='mobNo' type="text" class="form-control" formControlName="mobNo">
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Enter Valid Mobile No. With Country Code</small></div>
+                </div>
+            </div>
+
+            <!-- 
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="employId">Employee ID</label>
+                    <input id='employId' type="text" class="form-control" formControlName="employId">
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Enter Valid Employee ID</small></div>
+                </div>
+            </div> -->
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <select id='department' class='form-control' formControlName="department">
+                        <option value="" [selected]="true">--Select Department--</option>
+                        <option value='{{dept.userDept}}' *ngFor="let dept of deptData">{{dept.userDept}}</option>
+                    </select>
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Select Department</small></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="userrole">User Role</label>
+                    <select id='userrole' class='form-control' formControlName="userrole">
+                        <option value='' [selected]="true">--Select Role--</option>
+                        <option value='{{r.userRole}}' *ngFor="let r of roleData">{{r.userRole}}</option>
+                    </select>
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Select User Role</small></div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="designation">Designation</label>
+                    <select id='designation' class='form-control' formControlName="designation">
+                        <option value="" [selected]="true">--Select Department--</option>
+                        <option value='{{desig.userDegn}}' *ngFor="let desig of desigData">{{desig.userDegn}}</option>
+                    </select>
+                    <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                aria-hidden="true"></i>
+                            Please Select Designation</small></div>
+                </div>
+            </div>
+            <ng-container *ngIf="create">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id='password' type="password" class="form-control" formControlName="password">
+                        <div class="error-box"><small class="error"><i class="fa fa-exclamation-triangle"
+                                    aria-hidden="true"></i>
+                                Please Enter Valid Password (atleast a lowercase, an uppercase, a number and a special
+                                character with min 6-digits and max 15-digits)</small></div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="cnfpassword">Confirm Password</label>
+                        <input id='cnfpassword' type="password" class="form-control" formControlName="cnfpassword">
+                        <div class="error-box" *ngIf="show"><small class="err2"><i class="fa fa-exclamation-triangle"
+                                    aria-hidden="true"></i>
+                                Password doesn't match </small></div>
+                    </div>
+                </div>
+
+                <div class="csv-upload flex">
+                    <div class="browse-upload">
+                    <div class="bu-box flex cursor">
+                        <label for="cnfpassword">Upload File</label>
+                      
+                        <input class="cursor" class="btn btn-success"  style ="margin-left: 16px; width: 210px;" type="file" id="file" (change)="handleChange($event)"
+                        #fileUpload>
+                       
+                    </div>
+                </div>
+
+            </div>
+            </ng-container>
+        </div>
+        <!-- *ngIf="!resetflag;"  -->
+        <div class="text-center mt-4">
+            <ng-container *ngIf="create">
+                <button type="reset" style='margin-right:16px' class="btn btn-primary btn-sm mr-2" (click)="resetUsersForm()">Reset</button>
+                <button type="submit" style='margin-right:16px' class="btn btn-primary btn-sm mr-2" [disabled]="!userForm.valid"
+                    (click)="onSubmitEntryForm()">Create User</button>
+                              <button  class="btn btn-primary btn-sm" routerLink="/filter">Back</button>
+            </ng-container>
+            <ng-container *ngIf="!create">
+                <button type="button" class="btn btn-primary btn-sm mr-2" [disabled]="!userForm.valid"
+                    (click)="onUpdateForm()">Update User</button>
+                <!-- <button type="button" class="btn btn-primary btn-sm mr-2" (click)="closeUsersForm()">Back</button> -->
+            </ng-container>
+        </div>
+    </form>
+
+    <div class="table-responsive mt-2" >
+        <table class="table table-bordered" >
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>User Name</th>
+                    <th>Email Id</th>
+                    <th>Department</th>
+                    <th>User Role</th>
+                    <th>Action</th>
+                    <th>Docs Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="allData.length > 0; else _noData">
+                    <tr *ngFor="let b of allData;let i=index" >
+                        <td>{{i+1}}</td>
+                        <td>{{b.fullname}}</td>
+                        <td>{{b.emailId}}</td>
+                        <td>{{b.department}}</td>
+                        <td>{{b.userrole}}</td>
+                        
+                        <td>
+                            <button type="submit" class="btn btn-primary btn-sm" (click)='EditUser(b)'>Action</button>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-primary btn-sm" (click)='download(b.filename)'>Download</button>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-template #_noData>
+                    <tr>
+                        <td colspan="6">No data</td>
+                    </tr>
+                </ng-template>
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="myModal" *ngIf="myModal" class="popup-display" >
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content" style=line-height:2em>
+                <div class="modal-header">
+                    <button type="button" class="close" (click)="closePop()">&times;</button>
+                    <h4 class="modal-title">Edit</h4>
+                </div>
+                <div class="modal-body" >
+                    <div class="col-md-12 text-center mt-5" >
+    
+    
+                        <label for="training">User Name: </label>
+                        <input type="text"  value="{{editData.fullname}}" [(ngModel)]="editData.fullname">
+                    
+                        <label for="training"> Email Id: </label>
+                        <input type="text" value="{{editData.emailId}}" [(ngModel)]="editData.emailId">
+                    
+                        <label for="training"> Department: </label>
+                        <input type="text" value="{{editData.department}}" [(ngModel)]="editData.department">
+                    
+                        <label for="training"> User Role: </label>
+                        <input type="text" value="{{editData.userrole}}" [(ngModel)]="editData.userrole">
+                    
+                        <button type="submit" class="btn btn-primary btn-sm" (click)='updateUser(editData)'>Edit</button>
+                    
+                    
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"  class="btn btn-default" data-dismiss="modal" (click)='closePop()'>Close</button>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+</main>
+
+
+<!-- <app-validation-message [message]="inputJson"></app-validation-message> -->
+
+<!-- <app-footer></app-footer> -->
