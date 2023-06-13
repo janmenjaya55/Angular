@@ -56,7 +56,7 @@ export class HistorypageComponent implements OnInit {
 
 
 
-   console.log("url ############ param./"+fv.PartyCode+"/"+fv.invoiceNo+"/"+fv.OrderNo+"/"+fv.Status)
+   console.log("url ############ param./"+fv.PartyCode+"/"+fv.invoiceNo+"/"+fv.OrderNo+"/"+fv.Status+"/"+fv.week+"/"+fv.year+"/"+fv.grNo)
    
    this._filter.filterViewList(fv).subscribe((res: any) => {
    

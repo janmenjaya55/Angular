@@ -49,9 +49,16 @@
                                 <td>{{b.invoiceNO}}</td>
                                 <td>{{b.billOrderDate | date: 'dd-MM-yyyy'}}</td>
                                 <td>{{b.status}}</td>
-                                <td><button
-                                        (click)="formpage({'billOrderNo': b.billOrderNo,'partyCode': b.partyCode,'invoiceNO' : b.invoiceNO,'status' : b.status,'createdDate' : b.createdDate})"
-                                        class="btn btn-primary btn-sm">View</button></td>
+                                <td>
+                                    
+                                    
+                                    <button *ngIf="b.status=='SUBMITTED' || b.status=='APPROVED' || b.status=='CLOSED';else viewdetail"  (click)="formpage({'billOrderNo': b.billOrderNo,'partyCode': b.partyCode,'invoiceNO' : b.invoiceNO,'status' : b.status,'createdDate' : b.createdDate})" class="btn btn-primary btn-sm">View</button>
+                                        <ng-template #viewdetail>
+                                            <button (click)="formpage({'billOrderNo': b.billOrderNo,'partyCode': b.partyCode,'invoiceNO' : b.invoiceNO,'status' : b.status,'createdDate' : b.createdDate})" class="btn btn-primary btn-sm">Edit</button>
+                                        </ng-template>
+                                    
+                                    
+                                    </td>
                             </tr>
                         </ng-container>
                         <ng-template #no_record>

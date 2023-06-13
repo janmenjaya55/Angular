@@ -25,6 +25,18 @@ export class ForgotPasswordServiceService {
   
    }
 
+   getotp(fv:any){
+    console.log("getotpvalidation service>>>>>>>>>>>>>>>>>>>>>.",fv)
+    let url : string =this.authAPI+"user/getotpvalidation"
+   
+    
+ console.log("Login data>>>>>>>>>>>>>>>>>>>>>.",fv)
+ 
+  return this._http.post(url, fv);
+
+  
+   }
+
    
 
   getUserSubmit(fv:any){

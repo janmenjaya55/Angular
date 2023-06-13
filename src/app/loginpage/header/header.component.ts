@@ -100,7 +100,7 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem("S_A_Token");
     sessionStorage.removeItem("userrole");
     this.navAdmin = false
-    this._router.navigate(["/forgotpasswordpage"])
+    this._router.navigate(["/loginpage"])
     this.logoutOut.next({
       "auth": false,
       "checkAuth": true

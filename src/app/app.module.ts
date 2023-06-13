@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -31,11 +31,13 @@ import { RoleComponent } from './masterdata/role/role.component';
 import { ManualformComponent } from './manualform/manualform.component';
 import { UploadDocumentComponent } from './upload-document/upload-document.component';
 import { MediaplayerComponent } from './mediaplayer/mediaplayer.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 //import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
+  
     AppComponent,
     LoginpageComponent,
     InvoiceComponent,
@@ -60,11 +62,13 @@ import { MediaplayerComponent } from './mediaplayer/mediaplayer.component';
     RoleComponent,
     ManualformComponent,
     UploadDocumentComponent,
-    MediaplayerComponent
+    MediaplayerComponent,
+    AuthenticationComponent
 
 
   ],
   imports: [
+  
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -80,5 +84,6 @@ import { MediaplayerComponent } from './mediaplayer/mediaplayer.component';
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

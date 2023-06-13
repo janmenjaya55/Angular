@@ -15,6 +15,7 @@ export class LoginpageComponent implements OnInit {
   password:any
   errorMsgText: any;
   errorMsg: boolean;
+  optionHide : any= false
  
   
   
@@ -39,7 +40,7 @@ export class LoginpageComponent implements OnInit {
     this._Router.navigate(["/forgotpasswordpage"])
   }
  loginSubmit(){
-   
+  this.optionHide = true;
    
    let fv = this.loginForm.value
   let param = {"username":fv.username,"password":fv.password}
@@ -53,12 +54,15 @@ this._loginservice.loginSubmit(param).subscribe((res: any) =>{
   console.log(res)
   
   if(res["userrole"] == "ChairPerson"){
+    this.optionHide = false;
   this._Router.navigate(["/filter"])
  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
   }else if(res["userrole"] == "Finance User"){
+    this.optionHide = false;
        this._Router.navigate(["/forgotpasswordpage"])
     console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
    }else if(res["userrole"] == "Admin User"){
+    this.optionHide = false;
  // this._Router.navigate(["/invoice"])
  this._Router.navigate(["/filter"])
  console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
@@ -66,6 +70,7 @@ this._loginservice.loginSubmit(param).subscribe((res: any) =>{
   this.errorMsg=false
 
 },(err:any)=>{
+  this.optionHide = false;
   this.errorMsg=true
   this.errorMsgText="Username and Password is Invalid"
 })
@@ -75,8 +80,8 @@ this._loginservice.loginSubmit(param).subscribe((res: any) =>{
 
 
 loginSubmitWithGit(){
-
-
+  //this.optionHide = true;
+  console.log("returndata by git hubWWW>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 
 this._loginservice.loginSubmitWithGit().subscribe((res: any) =>{
  
@@ -84,12 +89,15 @@ this._loginservice.loginSubmitWithGit().subscribe((res: any) =>{
 
  //this._http.get('http://localhost:5014/login', { observe: 'response' }).subscribe(() => res.headers.get('location'));
  if(res["userrole"] == "ChairPerson" || res["userrole"] == "FIN"){
+  this.optionHide = false;
  this._Router.navigate(["/filter"])
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
  }else if(res["userrole"] == "Finance User"){
+  this.optionHide = false;
       this._Router.navigate(["/forgotpasswordpage"])
    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
   }else if(res["userrole"] == "Admin User"){
+    this.optionHide = false;
 // this._Router.navigate(["/invoice"])
 this._Router.navigate(["/filter"])
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>")

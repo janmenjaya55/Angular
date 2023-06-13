@@ -1,7 +1,7 @@
 <app-header></app-header>
 <main class="container rounded mt-3 p-3" style=line-height:2.0em>
     <div class="ribbon p-2 mb-3 rounded-top d-flex justify-content-between">
-        <div class="nav-name">Listing Search</div>
+        <div class="nav-name">History Search</div>
     </div>
     <div class="col-md-12 text-center" class="col-md-12 text-center mt-6">
         <!-- <app-selector></app-selector> -->
@@ -45,9 +45,22 @@
                 <input type="text" formControlName="week" class="form-control" placeholder="Week">
             </div>
             <div class="col-md-3">
-                <label for="training"> Status: </label>
-                <input type="text" formControlName="Status" class="form-control" placeholder="Status">
+            <label for="training"> Status: </label>
+              
+
+            
+            
+            <select type="text" formControlName="Status" class="form-control" placeholder="Status">
+                <option value="RECORD_RECEIVED">Record Received</option>
+                <option value="SUBMITTED">Submitted</option>
+                <option value="APPROVED">Approved</option>
+                <option value="CLOSED">Closed</option>
+                <option value="INVALID">Invalid</option> 
+              </select>
+            
             </div>
+
+            
             <button class="btn btn-success" style='margin-left:16px' style='margin-top:33px' type="submit"
                 (click)="filterFormsearch()" [disabled]="filterForm.invalid">Search</button>
 

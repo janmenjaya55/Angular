@@ -43,9 +43,20 @@
 <label for="training"> Week: </label>
 <input type="text" formControlName="week" class="form-control" placeholder="Week">
 </div>
-        <div class="col-md-3">
-        <label for="training"> Status: </label>
-        <input type="text" formControlName="Status" class="form-control"  placeholder="Status">
+<div class="col-md-3">
+    <label for="training"> Status: </label>
+      
+
+    
+    
+    <select type="text" formControlName="Status" class="form-control" placeholder="Status">
+        <option value="RECORD_RECEIVED">Record Received</option>
+    <option value="SUBMITTED">Submitted</option>
+    <option value="APPROVED">Approved</option>
+    <option value="CLOSED">Closed</option>
+    <option value="INVALID">Invalid</option> 
+      </select>
+    
     </div>
    <button class="btn btn-success" style='margin-left:16px' style='margin-top:33px'  type="submit" (click)="filterFormsearch()" [disabled]="filterForm.invalid">Search</button>
         

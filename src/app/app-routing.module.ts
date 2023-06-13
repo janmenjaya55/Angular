@@ -19,6 +19,7 @@ import { DepartmentComponent } from './masterdata/department/department.componen
 import { ManualformComponent } from './manualform/manualform.component';
 import { UploadDocumentComponent } from './upload-document/upload-document.component';
 import { MediaplayerComponent } from './mediaplayer/mediaplayer.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
   },
    {path:'invoice' , component:InvoiceComponent}
    ,
-   {path:'filter' , component:FilterComponent}
+   {path:'filter' , component:FilterComponent},
+   {path:'otpuserpage' , component:AuthenticationComponent}
    ,
    {path:'listpage' , component:ListpageComponent}
    ,

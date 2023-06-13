@@ -35,13 +35,14 @@ export class LoginpageserviceService {
   loginSubmitWithGit(){
     
     //let url : string =this.authAPI+"user/checkuser"
-    let url : string =this .authAPIAuth+"github"
+   // let url : string =this .authAPIAuth+"github"
+    let url : string ="http://192.168.40.114:5014/githubtest"
    console.log("Auth url>>>>>>>>>>>>>>>>>",url);
 
-  // window.location.href = 'http://localhost:5014/login';
-  // window.location.href = 'http://192.168.56.13:8014/login';
+   //window.location.href = 'http://192.168.40.114:5014/github';
+   //window.location.href = 'http://192.168.56.11:8014/login';
    
-    return this._http.get('');
+    return this._http.get('http://192.168.40.114:5014/github');
     
     
   }

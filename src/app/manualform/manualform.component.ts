@@ -75,7 +75,16 @@ export class ManualformComponent implements OnInit {
       billOrderDate: new FormControl(""),
       pair: new FormControl(""),
       purchaseCost: new FormControl(""),
-      invoiceCost: new FormControl("")
+      invoiceCost: new FormControl(""),
+
+
+
+      articleCode: new FormControl(""),
+      weekYear: new FormControl(""),
+      rdcPair: new FormControl(""),
+      noOfCartons: new FormControl(""),
+      receiveDate: new FormControl(""),
+      status: new FormControl("SUBMITTED")
        
   
   

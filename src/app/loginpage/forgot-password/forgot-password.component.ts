@@ -16,10 +16,13 @@ export class ForgotPasswordComponent implements OnInit {
   resetForm: FormGroup  ;
   passForm: FormGroup ;
   username:any;
+  userotp:any;
   b: any ;
   inputJson = new BehaviorSubject({});
   change:boolean = false;
-  
+  myModal: boolean = false;
+  loadingSpinner: boolean = false;
+  optionHide : any= false
    
   constructor(private _loginServ: LoginpageserviceService, private _Router: Router,private _loginservice:ForgotPasswordServiceService) {
  
@@ -43,7 +46,8 @@ export class ForgotPasswordComponent implements OnInit {
  
 console.log("hjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"+this.change)
    this.resetForm = new FormGroup({
-     username:new FormControl(null)
+     username:new FormControl(null),
+     userotp:new FormControl(null)
    
    });
    
@@ -70,27 +74,57 @@ console.log("hjjjjjjjjjjjjjjjjjjjjjjjjjjjjj"+this.change)
 
 
  resetPassword(){
-   
+  this.optionHide = true;
   console.log("nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"+this.change)
 
   let fv = this.resetForm.value
+  
  let param = {"username":fv.username}
+ sessionStorage.setItem("username",fv.username)
+ 
 console.log("Login sucdesfully.#########>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 console.log(param)
-this._loginservice.forgotPassword(param).subscribe((res: any) =>{
- console.log("returndata>##################>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
- console.log(res)
 
- if(res["status"] == "200"){
-this.b=res["data"]
-console.log(this.b)
 
- this._Router.navigate(["/forgotpasswordpage"])
+this._loginservice.getotp(param).subscribe((res: any) =>{
+  console.log("returndata>##################>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+  console.log(res)
+ 
+  if(res["status"] == "200"){
+    this.loadingSpinner = false;
+     this.inputJson.next({
 
-}
+        popShow: true,
+        popMsg: "Otp sent Successfully .",
+        popClass: "alert alert-success",
+        popRoute: ""
+        
+        
+      });
+      console.log("otpuserpage>##################>>>route")
+      this._Router.navigate(["/otpuserpage"])
+      
+ }
+  
+ 
+ })
+ 
+ 
+//  let paramone = {"username":sessionStorage.getItem("username"),"userotp":fv.userotp}
+// this._loginservice.forgotPassword(paramone).subscribe((res: any) =>{
+//  console.log("returndata>##################>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+//  console.log(res)
+
+//  if(res["status"] == "200"){
+// this.b=res["data"]
+// console.log(this.b)
+
+//  this._Router.navigate(["/forgotpasswordpage"])
+
+// }
  
 
-})
+// })
 
 }
  
@@ -102,6 +136,7 @@ changePassword(){
  let param = {"password":fv.password,"username":this.username}
 
  console.log("change password data."+ fv.password)
+ console.log("change password data."+ fv.newPassword)
  if (fv.newPassword== fv.password) {
   
   console.log("Login sucdesfully.")
@@ -115,11 +150,24 @@ this._loginservice.changePassword(param).subscribe((res: any) =>{
 this.b='Password change successfully.';
 console.log("change successfully>>>>>>>>>>>>>>>>>>>>>>>>>>"+this.b)
 
- this._Router.navigate(["/loginpage"])
+       this.passForm.reset()
+       this.loadingSpinner=false
+        console.log(res)
+       this.myModal = false;
+      
+       this.inputJson.next({
+  popShow: true,
+  popMsg: "Password change successfully.",
+  popClass: "alert alert-success",
+  popRoute: "/loginpage"
+});
+
+//this._Router.navigate(["/loginpage"])
+
 
 
 }else{
-
+  
   this.inputJson.next({
     popShow: true,
     popMsg: "Password and NewPassword not matched.",
@@ -134,6 +182,20 @@ console.log("change successfully>>>>>>>>>>>>>>>>>>>>>>>>>>"+this.b)
 })
 
 }
+else{
+  this.b='Password and NewPassword not matched.';
+  console.log("changewrongcvvvvvvvvvvvv>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Wrong")
+  this.inputJson.next({
+    popShow: true,
+    popMsg: "Password and NewPassword not matched.",
+    popClass: "alert alert-success",
+    popRoute: ""
+  });
+}
+}
+closePop = () => {
+  this.myModal = false;
+  this._Router.navigate(["/loginpage"])
 }
 
 GetUserName(){

@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   environmentName: 'dev',
-   apiUrl: 'http://localhost',
-  apiUrlone: 'http://localhost',
-  apiUrltwo: 'http://localhost',
-  apiUrlthree: 'http://localhost'
+   apiUrl: '://localhost',
+  apiUrlone: '://localhost',
+  apiUrltwo: '://localhost',
+  apiUrlthree: '://localhost'
 };
 
 
