@@ -3,12 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   environmentName: 'dev',
-   apiUrl: '://localhost',
-  apiUrlone: '://localhost',
-  apiUrltwo: '://localhost',
-  apiUrlthree: '://localhost'
+   apiUrl: 'http://localhost',
+  apiUrlone: 'http://localhost',
+  apiUrltwo: 'http://localhost',
+  apiUrlthree: 'http://localhost'
 };
 
 
