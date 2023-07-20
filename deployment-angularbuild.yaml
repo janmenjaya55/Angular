@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eureka
+  name: angularbuild
   labels:
-    app: eureka
+    app: angularbuild
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: eureka
+      app: angularbuild
   template:
     metadata:
       labels:
-        app: eureka
+        app: angularbuild
     spec:
       containers:
-      - name: eureka
-        image: janmenjaya/eureka
+      - name: angularbuild
+        image: janmenjaya/angularbuild
         ports:
-        - containerPort: 30001  
+        - containerPort: 80  
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -31,20 +31,20 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: eureka
-  name: eureka
+    app: angularbuild
+  name: angularbuild
   namespace: default
 spec:
-  clusterIP: 10.101.156.118
+  clusterIP: 10.101.156.221
   clusterIPs:
-  - 10.101.156.118
+  - 10.101.156.221
   ports:
-  - nodePort: 32094
-    port: 30001
+  - nodePort: 32098
+    port: 80
     protocol: TCP
-    targetPort: 30001
+    targetPort: 8080
   selector:
-    app: eureka
+    app: angularbuild
   sessionAffinity: None
   type: NodePort
 
