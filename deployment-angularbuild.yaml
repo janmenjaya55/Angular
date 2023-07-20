@@ -35,14 +35,14 @@ metadata:
   name: angularbuild
   namespace: default
 spec:
-  clusterIP: 10.101.156.221
+  clusterIP: 10.107.246.250
   clusterIPs:
-  - 10.101.156.221
+  - 10.107.246.250
   ports:
   - nodePort: 32098
     port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 80
   selector:
     app: angularbuild
   sessionAffinity: None
