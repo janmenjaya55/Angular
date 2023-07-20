@@ -16,7 +16,7 @@ export class ManualserviceService {
 
     let url : string =this.billPunch+"save-details-manual"
  
-    return this._apiurl.securepost(url,v);
+    return this._http.post(url,v);
  
   }
 }

@@ -19,7 +19,7 @@ export class FormserviceService {
       
    let url : string =this.billPunch+"get-history-list-populate-by-billno-test"
 
-    return this._apiurl.securepost(url,v);
+    return this._http.post(url,v);
   }
 
   filterViewList(fv:any){
@@ -27,14 +27,14 @@ export class FormserviceService {
         
     let url : string =this._apiurl.billPunch+"getall-billpunch-details-filter"
    
-    return this._apiurl.secureget(url+"/"+fv.partyCode+"/"+fv.invoiceNO+"/"+fv.billOrderNo+"/"+"RECORD_RECEIVED"+"/"+fv.year+"/"+fv.week+"/"+fv.grNo);
+    return this._http.get(url+"/"+fv.partyCode+"/"+fv.invoiceNO+"/"+fv.billOrderNo+"/"+"RECORD_RECEIVED"+"/"+fv.year+"/"+fv.week+"/"+fv.grNo);
  }
 
   onSubmitListForm(v:any){
 
     let url : string =this.billPunch+"save-details-one"
  
-    return this._apiurl.securepost(url,v);
+    return this._http.post(url,v);
  
   }
 }

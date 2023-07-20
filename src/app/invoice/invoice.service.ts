@@ -32,7 +32,7 @@ export class InvoiceService {
    
     let url : string =this.billPunch+"save-details-one"
 
-   return    this._apiurl.securepost(url,v);
+   return    this._http.post(url,v);
 
   }
 }

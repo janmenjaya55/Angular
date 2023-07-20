@@ -44,7 +44,7 @@ export class ExportxlserviceService {
     
    let url : string =this.billPunch+"get-billpunch-charts-one-test/"
 console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",fyear)
-    return this._apiurl.secureget(url+fyear);
+    return this._http.get(url+fyear);
   }
 
 }

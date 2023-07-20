@@ -19,6 +19,6 @@ export class HistorypageserviceService {
         
    let url : string =this._apiurl.billPunch+"getall-billpunch-details-filter"
 
-   return this._apiurl.secureget(url+"/"+fv.PartyCode+"/"+fv.invoiceNo+"/"+fv.OrderNo+"/"+fv.Status+"/"+fv.year+"/"+fv.week+"/"+fv.grNo);
+   return this._http.get(url+"/"+fv.PartyCode+"/"+fv.invoiceNo+"/"+fv.OrderNo+"/"+fv.Status+"/"+fv.year+"/"+fv.week+"/"+fv.grNo);
 }
 }
