@@ -55,11 +55,17 @@ export class ApiUrlserviceService {
         //this.baseURL1 = this.environmentUrlone + ':5011/'
        
       }else {
-        this.baseURL = this.environmentUrl + ':30002/bataloginzull/'
-        this.baseURL1 = this.environmentUrlone + ':30002/batazull/'
-        this.baseURL2 = this.environmentUrltwo + ':30002/batadoczull/'
-        this.baseURL3 = this.environmentUrlthree + ':30002/batamediazull/'
-        this.baseURL4 = this.environmentUrlthree + ':30002/bataauthzull/'
+        this.baseURL = this.environmentUrl + ':32095/bataloginzull/'
+        this.baseURL1 = this.environmentUrlone + ':32095/batazull/'
+        this.baseURL2 = this.environmentUrltwo + ':32095/batadoczull/'
+        this.baseURL3 = this.environmentUrlthree + ':32095/batamediazull/'
+        this.baseURL4 = this.environmentUrlthree + ':32095/bataauthzull/'
+
+        // this.baseURL = this.environmentUrl + ':30002/bataloginzull/'
+        //this.baseURL1 = this.environmentUrlone + ':30002/batazull/'
+        //this.baseURL2 = this.environmentUrltwo + ':30002/batadoczull/'
+        //this.baseURL3 = this.environmentUrlthree + ':30002/batamediazull/'
+        //this.baseURL4 = this.environmentUrlthree + ':30002/bataauthzull/'
 
         //this.baseURL = this.environmentUrl + ':8091/bataloginzull/'
         //this.baseURL1 = this.environmentUrlone + ':8091/batazull/'
